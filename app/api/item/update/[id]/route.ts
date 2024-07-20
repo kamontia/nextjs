@@ -3,13 +3,14 @@ import { NextResponse } from "next/server";
 import connectDB from "../../../utils/database";
 import { ItemModel } from "../../../utils/schemaModels";
 
-export async function GET(request, context) {
-
+export async function PUT(request,context) {
+    const reqBody = await request.json()
     try {
         await connectDB()
-        console.log(context.params.id)
-        const singleItem = await ItemModel.findById(context.params.id)
-        return NextResponse.json({ message: "成功" , sigleItem: singleItem})
+
+        await ItemModel.updateOne({_id: context.params.id},reqBody)
+        
+        return NextResponse.json({ message: "成功"})
         // const allItems = await ItemModel.find()
         // return NextResponse.json({ message: "成功", allItems: allItems })
     } catch (err) {
