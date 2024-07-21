@@ -3,7 +3,8 @@ import { NextResponse } from "next/server";
 import connectDB from "../../../utils/database";
 import { ItemModel } from "../../../utils/schemaModels";
 
-export async function DELETE(request, context) {
+export async function DELETE(request: any, context: any) {
+    const reqBody = await request.json()
     try {
         await connectDB()
 

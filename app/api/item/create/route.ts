@@ -1,11 +1,11 @@
-import { NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 
 import connectDB from "../../utils/database";
 
-import { ItemModel,ItemSchema } from "../../utils/schemaModels";
+import { ItemModel } from "../../utils/schemaModels";
 
 
-export async function POST(request: ItemSchema) {
+export async function POST(request: NextRequest) {
     // console.log(await request.json())
 
     const reqBody = await request.json()

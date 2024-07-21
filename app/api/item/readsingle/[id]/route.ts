@@ -1,9 +1,9 @@
-import { NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 
 import connectDB from "../../../utils/database";
 import { ItemModel } from "../../../utils/schemaModels";
 
-export async function GET(request, context) {
+export async function GET(request: NextRequest, context: any) {
 
     try {
         await connectDB()
