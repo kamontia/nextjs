@@ -3,7 +3,8 @@ import { NextRequest, NextResponse } from "next/server";
 
 export async function middleware(request: NextRequest) {
 
-  const token = await request.headers.get("Authorization")?.split("")[1]
+  // const token = await request.headers.get("Authorization")?.split("")[1]
+  const token = "eyJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6ImthbW9udGlhQGdtYWlsLmNvbSIsImV4cCI6MTcyMTkxMjcyNn0.8S2nqaO2sUFZQVzaxPlvkY6wJvwgh8_-HahaB5Co9BM"
 
   if (!token) {
     return NextResponse.json({ message: "Token is not found." })

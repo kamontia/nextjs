@@ -9,7 +9,7 @@ export async function GET(request: NextRequest, context: any) {
         await connectDB()
         console.log(context.params.id)
         const singleItem = await ItemModel.findById(context.params.id)
-        return NextResponse.json({ message: "成功" , sigleItem: singleItem})
+        return NextResponse.json({ message: "成功" , singleItem: singleItem})
         // const allItems = await ItemModel.find()
         // return NextResponse.json({ message: "成功", allItems: allItems })
     } catch (err) {
