@@ -1,4 +1,5 @@
 import { NextRequest } from "next/server"
+import Image from "next/image"
 
 const getSingleItem = async (id) => {
     // console.log(id)
@@ -14,7 +15,19 @@ const ReadSignleItem = async (context) => {
     const singleItem = await getSingleItem(context.params.id)
 
     return (
-        <h1>個別アイテムページ</h1>
+        <div>
+            <div>
+                <Image src={singleItem.image} height={500} width={750} alt="Image" priority/>
+            </div>
+            <div>
+                <h1>{singleItem.title}</h1>
+                <h2>{singleItem.price}</h2>
+                <hr/>
+                <p>{singleItem.description}</p>
+
+            </div>
+
+        </div>
     )
 }
 
